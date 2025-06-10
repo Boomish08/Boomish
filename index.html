@@ -3,34 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My GitHub Page</title>
+  <title>Login Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+    h2 {
       text-align: center;
-      margin: 50px;
-      background-color: #f0f0f0;
+      margin-bottom: 1.5rem;
       color: #333;
     }
-    h1 {
-      color: #0366d6;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    a {
-      color: #0366d6;
-      text-decoration: none;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
       font-weight: bold;
+      color: #555;
     }
-    a:hover {
-      text-decoration: underline;
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: #0366d6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0256b3;
+    }
+    .message {
+      margin-top: 1rem;
+      text-align: center;
+      color: red;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My GitHub Page!</h1>
-  <p>This is a simple index page hosted on GitHub Pages.</p>
-  <p>Check out my <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required />
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required />
+      
+      <button type="submit">Login</button>
+      <div class="message" id="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = form.username.value.trim();
+      const password = form.password.value.trim();
+
+      // Example validation (in real life, never validate like this on client side only)
+      if (username === "user" && password === "pass123") {
+        message.style.color = 'green';
+        message.textContent = "Login successful!";
+        // Redirect or handle login success here
+      } else {
+        message.style.color = 'red';
+        message.textContent = "Invalid username or password.";
+      }
+    });
+  </script>
 </body>
 </html>
+
