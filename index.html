@@ -2,101 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login Page</title>
+  <title>Simple Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
+      background: #24292e; /* GitHub dark background */
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
     }
-    .login-container {
-      background-color: white;
-      padding: 2rem;
+    .login-box {
+      background: #2f363d;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      width: 320px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     h2 {
       text-align: center;
-      margin-bottom: 1.5rem;
-      color: #333;
+      margin-bottom: 20px;
     }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: #555;
-    }
-    input[type="text"],
-    input[type="password"] {
+    input[type="text"], input[type="password"] {
       width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
       border-radius: 4px;
-      box-sizing: border-box;
     }
     button {
       width: 100%;
-      padding: 0.7rem;
-      background-color: #0366d6;
-      color: white;
+      background-color: #28a745;
       border: none;
+      padding: 10px;
       border-radius: 4px;
-      font-size: 1rem;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #0256b3;
-    }
-    .message {
-      margin-top: 1rem;
-      text-align: center;
-      color: red;
-      font-size: 0.9rem;
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-box">
     <h2>Login</h2>
-    <form id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter username" required />
-      
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter password" required />
-      
+    <form>
+      <input type="text" placeholder="Username" required /><br />
+      <input type="password" placeholder="Password" required /><br />
       <button type="submit">Login</button>
-      <div class="message" id="message"></div>
     </form>
   </div>
-
-  <script>
-    const form = document.getElementById('loginForm');
-    const message = document.getElementById('message');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = form.username.value.trim();
-      const password = form.password.value.trim();
-
-      // Example validation (in real life, never validate like this on client side only)
-      if (username === "user" && password === "pass123") {
-        message.style.color = 'green';
-        message.textContent = "Login successful!";
-        // Redirect or handle login success here
-      } else {
-        message.style.color = 'red';
-        message.textContent = "Invalid username or password.";
-      }
-    });
-  </script>
 </body>
 </html>
-
